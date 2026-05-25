@@ -87,60 +87,91 @@ const Header = () => {
           </div>
         </div>
         <div className="lg:hidden">
-          {/* TOP BAR */}
-          <div className="h-[74px] flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 min-w-0">
-              <Image
-                src="/logo.png"
-                alt="Indian Oil Officers Association"
-                width={90}
-                height={90}
-                priority
-                className="h-[42px] w-auto object-contain shrink-0"
-              />
+          <div className="h-[74px] flex items-center">
+            {/* LEFT */}
+            <div className="w-[72px] flex justify-start items-center">
+              <Link href="/" className="shrink-0">
+                <Image
+                  src="/logo.png"
+                  alt="Indian Oil Officers Association"
+                  width={80}
+                  height={80}
+                  priority
+                  className="h-[40px] w-auto object-contain"
+                />
+              </Link>
+            </div>
 
-              <div className="min-w-0 text-center">
-                <h1 className="text-[#02144d] font-extrabold text-[15px] leading-tight">
-                  Indian Oil
-                </h1>
+            {/* CENTER */}
+            <div className="flex-1 flex flex-col items-center justify-center text-center px-2">
+              <h1
+                className="
+        text-[#02144d]
+        font-extrabold
+        text-[18px]
+        leading-tight
+        whitespace-nowrap
+      "
+              >
+                Indian Oil
+              </h1>
 
-                <p
-                  className="
-            text-[#f37022]
-            text-[11px]
-            font-semibold
-            tracking-wide
-            leading-tight
-          "
-                >
-                  Officers Association
-                </p>
-              </div>
-            </Link>
+              <p
+                className="
+        text-[#f37022]
+        text-[13px]
+        font-semibold
+        leading-tight
+        whitespace-nowrap
+      "
+              >
+                Officers Association
+              </p>
+            </div>
 
-            <button
-              onClick={() => setMobileMenu(!mobileMenu)}
-              className="
-        h-11
-        w-11
+            {/* RIGHT */}
+            <div className="w-[72px] flex justify-end items-center">
+              <button
+                onClick={() => setMobileMenu(!mobileMenu)}
+                className="
+        relative
+        z-50
+
+        h-[46px]
+        w-[46px]
+
         flex
         items-center
         justify-center
-        rounded-xl
+
+        rounded-2xl
+
         border
-        border-[#dbe3f0]
-        bg-white
-        shadow-sm
-        z-50
-        relative
+        border-[#f37022]/20
+
+        bg-white/90
+        backdrop-blur-md
+
+        shadow-[0_8px_25px_rgba(243,112,34,0.12)]
+
+        transition-all
+        duration-300
+
+        active:scale-95
       "
-            >
-              {mobileMenu ? (
-                <X size={22} className="text-[#02144d]" />
-              ) : (
-                <Menu size={22} className="text-[#02144d]" />
-              )}
-            </button>
+              >
+                {mobileMenu ? (
+                  <X size={24} strokeWidth={2.3} className="text-[#f37022]" />
+                ) : (
+                  <Menu
+                    size={24}
+                    strokeWidth={2.3}
+                    className="text-[#f37022]"
+                  />
+                )}
+              </button>
+              <div className="w-2 shrink-0" />
+            </div>
           </div>
 
           {/* FULL SCREEN DRAWER */}
@@ -196,22 +227,8 @@ const Header = () => {
                 </div>
               </div>
 
-              <button
-                onClick={() => setMobileMenu(false)}
-                className="
-          h-11
-          w-11
-          flex
-          items-center
-          justify-center
-          rounded-xl
-          border
-          border-[#dbe3f0]
-          bg-white
-        "
-              >
-                <X size={22} className="text-[#02144d]" />
-              </button>
+              {/* Right Spacer */}
+              <div className="w-3 sm:w-4 shrink-0" />
             </div>
 
             {/* MENU ITEMS */}
